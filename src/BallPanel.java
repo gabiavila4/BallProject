@@ -10,6 +10,8 @@ public class BallPanel extends JPanel{
 
 //array of balls
     Ball[] balls = new Ball[20];
+
+    //old ball
     Ball myBall = new Ball(30, 30, 3);
     public BallPanel(){
 
@@ -41,15 +43,15 @@ public class BallPanel extends JPanel{
             }
         });
 
-        setBackground(Color.lightGray);
+        setBackground(Color.PINK);
     }
 
     @Override
     protected void paintComponent(Graphics g){
         super.paintComponent(g);
-        myBall.drawBall(g);
+      // myBall.drawBall(g);
 
-        g.fillOval(x, y, 20, 20);
+        //g.fillOval(x, y, 20, 20);
         x+=xSpeed;
         y+=ySpeed;
 
@@ -69,8 +71,19 @@ public class BallPanel extends JPanel{
         for(int i = 0; i< 20; i++){
      balls[i].drawBall(g);
      balls[i].moveBall(this);
-     //balls[i].setColor(Color(rC, bC, gC));
-        }
+
+          /*  for (int i2 = 0; i<20; i++) {
+                if (i == i2){
+
+                }
+                else if (balls[i].getX() == balls[i2].getX() && balls[i].getY() == balls[i2].getY() ) {
+                    balls[i].collide();
+                    balls[i2].collide();
+                    }
+
+                }*/
+            }
+
 
         repaint();
     }
